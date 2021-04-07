@@ -1,0 +1,150 @@
+
+<html>
+  <head>
+    
+<title> Product Information/ DarazScout</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" >
+<script  language="javascript" src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+<script  language="javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" > </script> 
+<script>
+  var totalRev = 0;
+  var totalReviewCount = 0;
+  var totalReviewRating =0.0;
+  var totalImageCount =0;
+  var totalVariation=0;
+   $(document).ready(function(){
+      var url = "https://darazscout-wepp-app.herokuapp.com/api/product/findall";
+
+var settings = {
+type: "GET",
+dataType: "json",
+url: url,
+data: "",
+success: function (result) {
+  $("#example").DataTable({
+              data:result,
+              "columns":[
+                {"data" : "imagesLink",
+                "render": function(data, type, row) {
+        return '<img src="'+data+'" style="widht:50px;height:50px;" />';
+    }},
+                  { "data":"sku"},
+                  {"data": "title"},
+                  {"data": "brand"},
+                  {"data" : "price"},
+                  {"data": "reviewCount"}
+              ]
+          })
+    
+          for (var i = 0; i < result.length; i++) {
+    //var obj = result[i];
+console.log(typeof(result[i].price));
+    totalRev = totalRev + parseInt( result[i].price);
+    totalReviewCount += parseInt(result[i].reviewCount);
+    totalReviewRating += result[i].avgRating;
+    totalImageCount += result[i].numberOfImages;
+    totalVariation =+  result[i].variationCount;
+          
+  }
+document.getElementById("totalRevenue").innerText=totalRev;
+document.getElementById("averageRevenue").innerText=totalRev/result.length;
+document.getElementById("averageReviewCount").innerText= parseInt(totalReviewCount/result.length);
+document.getElementById("averageReviewRating").innerText=(totalReviewRating/result.length).toFixed(2);
+document.getElementById("averageImageCount").innerText=parseInt(totalImageCount/result.length);
+document.getElementById("averageVariationCount").innerText= parseInt(totalVariation/result.length);
+        },
+        error: function (err) {
+  alert("error");
+},
+};
+$.ajax(settings);
+
+   });
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+
+<link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    
+  </head>
+  <body>
+
+    <div class="header">
+      <img src="onlylogo.png"style="float: left;width:50px;height:50px"/>
+      <h3 class="mb-0" style="text-align: center; font-family: Montserrat">
+        DarazScout
+        <br/>
+        <small class="text-muted">Web-Extension</small>
+      </h3>
+      
+    <div class="card-group" style= "font-family: Montserrat;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Total Revenue (PKR)</h5>
+          <p class="card-text" id="totalRevenue"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Average Revenue (PKR) </h5>
+          <p class="card-text" id="averageRevenue"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Average Review Count</h5>
+          <p class="card-text" id="averageReviewCount"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Average Review Rating</h5>
+          <p class="card-text" id="averageReviewRating"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Average Variation Count</h5>
+          <p class="card-text" id="averageVariationCount"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Average Image Count</h5>
+          <p class="card-text" id="averageImageCount"></p>
+        </div>
+      </div>
+    </div>
+
+
+<hr>
+
+
+
+      <table id="example" class="display" style="width:100%;">
+ <thead>
+     <th>Image</th>
+     <th>SKU</th>
+     <th>Title</th>
+     <th>Brand</th>
+     <th>Price</th>
+     <th>Review Count</th>
+ </thead>
+ <tfoot>
+   <th>Image</th>
+  <th>SKU</th>
+  <th>Title</th>
+  <th>Brand</th>
+  <th>Price</th>
+  <th>Review Count</th>
+ </tfoot>
+
+      </table>
+
+  </body>
+</html>

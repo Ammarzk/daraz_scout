@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>DarazScout</title>
+    <script src="scripts/jquery-2.2.4.min.js"></script>
+    <script src="scripts/popup.js"></script>
+    <link href="styles/styles.css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <img src="onlylogo.png" />
+      <h3 class="mb-0" style="text-align: center; font-family: Montserrat">
+        DarazScout
+        <br />
+        <small class="text-muted">Web-Extension</small>
+      </h3>
+    </div>
+    <hr />
+    <div>
+      <br />
+      <h5 class="mb-0" style="text-align: center; font-family: Montserrat">
+        Navigate to Daraz.pk and click on the button below to activate the
+        extension's features
+      </h5>
+      <hr />
+    </div>
+    <div class="buttondiv">
+      <button
+        id="btnOpen"
+        class="btn btn-secondary"
+        style="text-align: center; font-family: Montserrat"
+      >
+        Run Web Extension
+      </button>
+      <br />
+      <br />
+      <button
+        id="btnOpen"
+        class="btn btn-secondary"
+        style="text-align: center; font-family: Montserrat"
+      >
+        Go to Dashboard
+      </button>
+    </div>
+    <hr />
+
+    <h4 class="text-muted" style="text-align: center; font-family: Montserrat">
+      <a href="">Click here for a guide on how to use the extension! </a>
+    </h4>
+
+    <div style="width: 309px; height: 35px" id="container"></div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

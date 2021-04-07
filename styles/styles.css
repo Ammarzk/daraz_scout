@@ -1,0 +1,117 @@
+.item {
+  border: null;
+}
+.tab {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(17, 121, 240);
+}
+.foo {
+  font-size: 12px;
+  width: 100%;
+  border: 20px solid rgb(0, 32, 121);
+  
+}
+.th {
+  font-size: 500px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+  background-color: blue;
+}
+td {
+  padding: 10px;
+  font-family:-apple-system, BlinkMacSystemFont, 
+  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html {
+  font-size: 1rem;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  
+}
+
+.header h3 {
+  
+  top: 18px;
+  left: 10px;
+}
+
+.newheader img{
+  float: left;
+  width: 1000px;
+  height: 1000px;
+}
+
+.c div{
+  display: flex;
+  justify-content: space-around;
+}
+
+.c button{
+  width: 50%;
+  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  
+}
+.c button:hover{
+
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  
+}
+
+.buttondiv div { 
+  display: flex;
+  justify-content: space-around;
+}
+.buttondiv button {
+  width: 90%;
+  margin-left: 20px; 
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+
+}
+.buttondiv button:hover{
+  
+  background-color: #2e7de5;
+  box-shadow: 0px 15px 20px rgba(46, 156, 229, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+
+
+}
+

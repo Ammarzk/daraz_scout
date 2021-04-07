@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Daraz Scout",
+  "version": "4",
+	"browser_action":{
+        "default_icon":"onlylogo.png",
+		"default_popup": "popup.html"
+    }, 
+    "content_security_policy": "script-src 'sha256-PqX5mzZj4Qf/7U00fiZTljIOjk167oYZiShyGxXpN5s=' 'self' https://code.jquery.com https://cdn.datatables.net; object-src 'self'",
+  "permissions": [
+          "tabs"
+    ]
+    
+}
