@@ -33,16 +33,32 @@ chrome.tabs.query({
   console.log(tabURL);
    });
    
+
+
+
 window.onload=function(){
+
+  document.getElementById("linkbutton").addEventListener("click",changePopup);
+
+
+
+
+  async function getCurrentTab() {
+    let queryOptions = { active: true, currentWindow: true };
+    let [tab] = await chrome.tabs.query(queryOptions);
+    console.log(tab.url);
+  }
 document.getElementById("buttonLogin").addEventListener("click",login);
+document.getElementById("linkbutton").addEventListener("click",changePopup);
+
 
 function login(){
 let uname =document.getElementById("username").value;
 console.log(uname);
 let pword = document.getElementById("password").value;
   var request = new XMLHttpRequest();
-//let url='https://darazscout-scraper.herokuapp.com/scraper/ac/authenticate';
-let url='http://192.168.100.68:8080/scraper/ac/authenticate';
+let url='https://darazscout-scraper.herokuapp.com/scraper/ac/authenticate';
+//let url='http://192.168.100.68:8080/scraper/ac/authenticate';
 // let data=JSON.stringify({ "username": "abdullah",
 // "password": "12345"});
 let data=JSON.stringify({ "username": uname,
@@ -55,12 +71,17 @@ request.onreadystatechange=function(){
   if(request.readyState===4){
     console.log(request.response);
     localStorage.setItem("token",request.response);
+
+    chrome.browserAction.setPopup({
+      popup:"popup.html"
+   })
+   location.reload();
     
-    chrome.windows.create({
-      url: chrome.runtime.getURL("popup.html"),
-      type: "panel", height: 710, width: 1012,
+  //   chrome.windows.create({
+  //     url: chrome.runtime.getURL("popup.html"),
+  //     type: "panel", height: 710, width: 1012,
        
-  });
+  // });
     }
   
 }
@@ -88,5 +109,9 @@ console.log(request.response);
 //   },
 // };
 // $.ajax(settings);
+}
+
+function changePopup(){
+  
 }
 }

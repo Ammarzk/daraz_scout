@@ -11,6 +11,19 @@
 
 $(function () {
   $("#btnOpen").click(function () {
+    let tabURL="";
+
+chrome.tabs.query({
+  active: true,
+  lastFocusedWindow: true
+}, function(tabs) {
+   tabURL = tabs[0].url;
+   if(localStorage.getItem("url")){
+     localStorage.removeItem("url")
+   }
+   localStorage.sharedData = JSON.stringify({url:tabURL});
+  console.log(tabURL);
+   });
     chrome.windows.create({
       url: chrome.runtime.getURL("newpopup.html"),
       type: "popup", height: 710, width: 1012,
