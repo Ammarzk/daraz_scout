@@ -53,8 +53,10 @@ document.getElementById("linkbutton").addEventListener("click",changePopup);
 
 
 function login(){
+  
 let uname =document.getElementById("username").value;
 console.log(uname);
+
 let pword = document.getElementById("password").value;
   var request = new XMLHttpRequest();
 let url='https://darazscout-scraper.herokuapp.com/scraper/ac/authenticate';
@@ -68,14 +70,22 @@ request.open('POST', url, true);
 request.setRequestHeader("Content-Type", "application/json");
 request.send(data);
 request.onreadystatechange=function(){
-  if(request.readyState===4){
+  // if(request.readyState===4){
+    if(request.readyState === XMLHttpRequest.DONE && this.status === 200){
     console.log(request.response);
     localStorage.setItem("token",request.response);
+
+    if(loggedIn()){
+      var x = document.getElementById("containerz");
+      x.style.display = "block";
+    }
+    
 
     chrome.browserAction.setPopup({
       popup:"popup.html"
    })
-   location.reload();
+  // location.reload();
+   
     
   //   chrome.windows.create({
   //     url: chrome.runtime.getURL("popup.html"),
@@ -111,7 +121,23 @@ console.log(request.response);
 // $.ajax(settings);
 }
 
-function changePopup(){
+ function loggedIn(){
   
+    let tokenCheck= localStorage.getItem("token");
+    if(tokenCheck==undefined ||  tokenCheck =='' || tokenCheck==null){
+      return false;
+    }
+    else {
+      return true;
+    }
+  
+}
+
+function changePopup(){
+  chrome.browserAction.setPopup({
+    popup:"popup.html"
+ })
+ //location.reload();
+  alert("Reload the extension by clicking on its icon!")
 }
 }

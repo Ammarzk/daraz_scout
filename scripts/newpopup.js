@@ -77,6 +77,7 @@ $(document).ready(function () {
           { data: "title" },
           { data: "brand" },
           { data: "price" },
+          { data: "reviewRating" },
           { data: "reviewCount" },
         ],
       });

@@ -114,4 +114,9 @@ html {
 
 
 }
-
+.loginForm input{
+  border-radius: 45px;
+}
+#containerz{
+  display: none;
+}
