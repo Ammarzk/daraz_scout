@@ -45,20 +45,21 @@
     <div>
       <br />
       <h5 class="mb-0" style="text-align: center; font-family: Montserrat">
-        Navigate to Daraz.pk and click on the button below to activate the
-        extension's features
+        Use your credentials to log in and access the extensions the features!
       </h5>
       <hr />
     </div>
     <div class="buttondiv">
       <div class="center">
       
-       <form id="loginForm" onsubmit="login()" > 
+       <form id="loginForm" class="loginForm" onsubmit="login()" > 
           <input id="username" name="username" type="text" placeholder="Username"required> 
+          <br>
+          
           
           <input id="password" name="password" type="password" placeholder="Password" required> 
           <br><br>
-          <button type="button" id="buttonLogin">Login</button>
+          <button type="button" id="buttonLogin" onclick="logout()">Login</button>
 
       </form> 
     </div>
@@ -67,10 +68,12 @@
     <hr />
 
     <h4 class="text-muted" style="text-align: center; font-family: Montserrat">
+      <div style="width: 309px; display: none; height: 35px" id="container1">Incorrect Credentials - enter again</div>
+
       <div style="width: 309px; height: 35px" id="container"> </div>
 
     <div style="width: 309px; height: 35px" id="containerz">
-      <button id="linkbutton"  href="#">change popup</button>
+      <button id="linkbutton"  href="#">Click here to proceed!</button>
     </div>
 
     <!-- Latest compiled and minified JavaScript -->

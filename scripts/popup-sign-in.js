@@ -71,7 +71,7 @@ request.setRequestHeader("Content-Type", "application/json");
 request.send(data);
 request.onreadystatechange=function(){
   // if(request.readyState===4){
-    if(request.readyState === XMLHttpRequest.DONE && this.status === 200){
+    if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
     console.log(request.response);
     localStorage.setItem("token",request.response);
 
@@ -92,6 +92,14 @@ request.onreadystatechange=function(){
   //     type: "panel", height: 710, width: 1012,
        
   // });
+    }
+    else if(request.status != 200) {
+      
+      var y = document.getElementById("container1");
+      if(y.style.display =="none"){
+        y.style.display ="block";
+      }
+
     }
   
 }

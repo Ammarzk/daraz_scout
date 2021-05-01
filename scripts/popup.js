@@ -1,3 +1,6 @@
+//document.getElementById("buttonLogout").addEventListener("click",logout);
+
+
 // let tabURL="";
 
 // chrome.tabs.query({
@@ -8,6 +11,33 @@
 //    localStorage.sharedData = JSON.stringify({url:tabURL});
 //   console.log(tabURL);
 //    });
+// $(function () {
+//   $("buttonLogout").click(function(){
+//     localStorage.removeItem("token");
+//     chrome.browserAction.setPopup({
+//       popup:"popup-signin.html";
+//    })
+//     alert("Close the extension!");
+//   });
+// });
+
+
+window.onload=function(){
+  document.getElementById("buttonLogout").addEventListener("click",logout);
+
+
+
+}
+function logout(){
+ console.log("TES");  
+  localStorage.removeItem("token");
+
+    chrome.browserAction.setPopup({
+      popup:"popup-signin.html"
+   });
+    alert("Close the extension!");
+
+}
 
 $(function () {
   $("#btnOpen").click(function () {
