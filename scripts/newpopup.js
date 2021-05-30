@@ -4,8 +4,6 @@ try {
   sharedData = JSON.parse(localStorage.sharedData);
   getUrl = sharedData.url;
   console.log(sharedData.url);
-  
-
 } catch (e) {
   console.log(e);
 }
@@ -21,10 +19,9 @@ let firstUrl;
 // }, function(tabs) {
 //    tabURL = tabs[0].url;
 //    //localStorage.sharedData = JSON.stringify({url:tabURL});
-   
+
 //   console.log(tabURL);
 //    });
-
 
 //delete localStorage.sharedData;
 
@@ -34,7 +31,7 @@ var totalReviewRating = 0.0;
 var totalImageCount = 0;
 var totalVariation = 0;
 $(document).ready(function () {
-  document.getElementById("testelement").innerText = sharedData.url;
+  //document.getElementById("testelement").innerText = sharedData.url;
 
   // chrome.tabs.query(
   //   {
@@ -48,28 +45,29 @@ $(document).ready(function () {
   //   }
   // );
 
-  var url ="http://192.168.100.68:8080/scraper/extention/scrapesearchpage?categoryLink="+getUrl //"https://darazscout-wepp-app.herokuapp.com/api/product/findall";
- var token=localStorage.getItem('token');
+  var url =
+    "http://192.168.100.68:8080/scraper/extention/scrapesearchpage?categoryLink=" +
+    getUrl; //"https://darazscout-wepp-app.herokuapp.com/api/product/findall";
+  var token = localStorage.getItem("token");
   var settings = {
     type: "GET",
     dataType: "json",
     url: url,
     headers: {
-      'Authorization':'Bearer '+token 
+      Authorization: "Bearer " + token,
     },
     //data: "", //send url gotten by the localstorage for comparison in the backend here.
     success: function (result) {
-      
       $("#example").DataTable({
         searching: false,
         data: result,
-      
+
         columns: [
           {
             data: "imagesLink",
             render: function (data, type, row) {
               return (
-                '<img src="' + data + '" style="widht:50px;height:50px;" />'
+                '<img src="' + data + '" style="width:50px;height:50px;" />'
               );
             },
           },
@@ -77,7 +75,7 @@ $(document).ready(function () {
           { data: "title" },
           { data: "brand" },
           { data: "price" },
-          { data: "reviewRating" },
+          { data: "avgRating" },
           { data: "reviewCount" },
         ],
       });
@@ -94,7 +92,7 @@ $(document).ready(function () {
       document.getElementById("totalRevenue").innerText = totalRev;
       document.getElementById("testelement").innertext = sharedData.url;
       document.getElementById("averageRevenue").innerText =
-        totalRev / result.length;
+       parseInt( totalRev / result.length);
       document.getElementById("averageReviewCount").innerText = parseInt(
         totalReviewCount / result.length
       );
@@ -107,10 +105,10 @@ $(document).ready(function () {
       document.getElementById("averageVariationCount").innerText = parseInt(
         totalVariation / result.length
       );
-     // document.getElementById("testelement").innerText = sharedData.url;
-
+      // document.getElementById("testelement").innerText = sharedData.url;
     },
     error: function (err) {
+      console.log(err);
       alert("error");
     },
   };

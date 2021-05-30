@@ -1,0 +1,63 @@
+body {
+  margin: auto 0;
+  height: 100vh;
+    font-family: "Montserrat",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    padding: 20px;
+
+}
+
+#grad1 {
+  
+  font-family: "Montserrat",Helvetica,Arial,sans-serif;
+
+}
+
+.imgg img{
+  padding: 25.7px;
+  border-radius: 45%;
+  height:250px;
+  width: 250px;
+  
+}
+.test table{
+  width: 20%;
+}
+
+.test td {
+  padding: 5px;
+}
+input{
+width: 50%;
+  margin-left: 20px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: solid #82b5f8;
+  border-width: 0.5px;
+  font-family: "Montserrat";
+}
+
+
+tr.bordered {
+    border-bottom: 1px solid rgb(153, 189, 231);
+    border-width: 0.5px;
+}
+
+td.titletext{
+  
+  border-bottom: 1px dotted rgb(153, 189, 231);
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-right:1px dotted rgb(153, 189, 231) ;
+  
+    
+}
+
+td.display{
+  padding: 50px;
+}

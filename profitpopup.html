@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>DarazScout Profit Calculator</title>
+    <link href="styles/profitCalculator.css" rel="stylesheet" />
+    <script src="scripts/jquery-2.2.4.min.js"></script>
+    <script src="scripts/profitcalculator.js"></script>
+    
+    
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="pc"></div>
+      <div id="grad1">
+
+   <table class="test">
+     <tr>
+       <td>
+         <div id="image" class="imgg"></div>
+         
+       </td>
+       <td id="productTitle"><h3>
+        <b id="test">  </b>
+         </h3></td>
+       </tr>
+
+       <tr>
+        <td><h4>Product Selling Price</h4> </td>
+        
+        <td>
+          <h3 id="productPrice"> </h3> 
+        </td>
+      </tr>
+
+      <tr>
+        <td><h4>SKU</h4> </td>
+        
+        <td>
+          <h3 id="productSKU"> </h3> 
+        </td>
+      </tr>
+
+      <tr class="bordered">
+        <td><h4>Brand</h4> </td>
+        
+        <td>
+          <h3 id="productBrand"> </h3> 
+        </td>
+      </tr>
+      <tr>
+        <td class="titletext">Commision Calculation</td>
+      </tr>
+      <tr>
+        
+        
+         
+        <td><h4>Select Appropiate Category</h4> </td>
+        
+        <td>
+         <label for="Categories">
+           <select id="catsTest" name="categories" style="width: 75%;">
+            
+            <option value="8.6">Bags and Travel</option>
+           
+            
+            <option value="12.9">Bedding and Bath</option>
+            
+            
+            <option value="3.689">Cameras</option>
+              
+        
+            <option value="">Charity and Donationn</option>
+          
+            <option value="6.09">Computers & Laptops</option>
+              
+             
+            <option value="13.17">Fashion</option>
+             
+            
+            <option value="3.4">Groceries</option>
+            
+          
+            <option value="9.02">Health & Beauty</option>
+            <option value="10.75">Home & Living</option>
+            <option value="6.27">Home Appliances</option>
+            <option value="10.75">Kitchen & Dining</option>
+            <option value="12.9">Laundry & Cleaning</option>
+            <option value="2.5">Livestock</option>
+            <option value="11.82">Media, Music & Books</option>
+            <option value="6.1">Mobiles & Tablets</option>
+            <option value="7.2">Mother & Baby</option>
+            <option value="3.71">Motors</option>
+            <option value="3.4">Pet Supplies</option>
+            <option value="">Service Product</option>
+            <option value="1.5">Special Digital Products</option>
+            <option value="8.6">Special Promotion</option>
+            <option value="11.31">Sports & Outdoors</option>
+            <option value="3.58">Stationery & Craft</option>
+            <option value="8.37">Tools, DIY & Outdoor</option>
+            <option value="">Topup</option>
+            <option value="8.6">Toys & Games</option>
+            <option value="5.15">TV, Audio / Video, Gaming & Wearables</option>
+            <option value="8.00">Watches Sunglasses Jewellery</option>
+            <option value="5.5">Digital Goods</option>
+            
+            
+           </select>
+         </label>
+        </td>
+      </tr>
+
+
+       <tr>
+         <td><h4> Commision %</h4> </td>
+         
+         <td>
+           <p id="commisionPercentage" type="text"> </p> 
+         </td>
+       </tr>
+
+      
+      
+      <tr>
+        <td><h4>Daraz Commision</h4> </td>
+        
+        <td>
+          <p id="darazCommision" type="text"> </p> 
+        </td>
+      </tr>
+
+      <tr>
+        <td><h4>Payment Fee (1.25%) of Sale Price</h4> </td>
+        
+        <td>
+          <p disabled id="paymentFee" type="text"> </p> 
+        </td>
+      </tr>
+      <tr class="bordered"></tr>
+
+      <tr class="bordered">
+        <td><h4>VAT on Daraz Commission and Payment Fee (16%)</h4> </td>
+        
+        <td>
+          <p id="VAT_DarazComm_PayFee" type="text"> </p> 
+        </td>
+      </tr>
+      <tr>
+        <tr><td class="titletext">Shipping Fee 
+          <a href="https://university.daraz.pk/course/learn?id=1134&type=policies&login=skip#:~:text=Shipping%20fees%20are%20the%20charges,ship%20items%20to%20a%20buyer.&text=Shipping%20Fee%20is%20calculated%20according,which%20affects%20the%20shipping%20charges"
+          >(To check shipping price, open this link in new tab)</a></td></tr>
+        <td><h4 style="color: red;">Please Enter Estimated Shipping Fees</h4> </td>
+     
+        <td>
+          <input id="user_shippingFee" type="number"> </input> 
+        </td>
+      </tr>
+
+      <tr class="bordered">
+        <td><h4>VAT on Shipping Fee(16%)</h4> </td>
+        
+        <td>
+          <p id="vatShippingFee" type="number"> </p> 
+        </td>
+      </tr>
+
+      <tr class="bordered">
+        <td><h4>Sub Total Daraz Expenses/Commisions</h4> </td>
+        
+        <td>
+          <p  id="darazExpenses" type="text"> </p> 
+        </td>
+      </tr>
+
+      <tr >
+        <td><h4 style="color:red">Enter Product Cost</h4> </td>
+        
+        <td>
+          <input  id="productCost" type="text"> </input> 
+        </td>
+      </tr>
+
+      <tr >
+        <td><h4>TOTAL EXPENSES (Product Cost + Fees)</h4> </td>
+        
+        <td >
+          <p  id="total_EXP" type="text"> </p> 
+        </td>
+      </tr>
+
+      <tr >
+        <td><h4>Net Profit Per Unit (Product Selling Price - Expenses)</h4> </td>
+        
+        <td>
+          <p  id="netProfit" type="text"> </p> 
+        </td>
+      </tr>
+
+      <tr>
+        <td><h4 style="color:red"> Your Expected Monthly Sales(Units)</h4> </td>
+        
+        <td>
+          <input  id="expected_sales" type="text"> </input> 
+        </td>
+      </tr>
+
+      <tr>
+        <td><h4>Total Expected Profit in a Month ( Net Profit per Product * Expected Sales)</h4> </td>
+        
+        <td>
+          <h3  id="total_Profit" type="text"> </h3>
+      </tr>
+
+
+      
+
+
+
+     </tr>
+
+
+
+
+
+   </table>
+
+
+
+
+
+
+
+      </div>
+
+  </body>
+</html>

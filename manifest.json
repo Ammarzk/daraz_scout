@@ -4,6 +4,7 @@
   "version": "4",
 	"browser_action":{
         "default_icon":"onlylogo.png",
+        
 		"default_popup": "popup-signin.html"
     }, 
     "content_security_policy": "script-src 'sha256-KU9ZDny/hzXMEU23NS6wxo8iK6dw8kPZetbf1C6vY7U=' 'self' https://code.jquery.com https://cdn.datatables.net; object-src 'self'",
