@@ -46,7 +46,7 @@ $(document).ready(function () {
   // );
 
   var url =
-    "http://192.168.100.68:8080/scraper/extention/scrapesearchpage?categoryLink=" +
+    "http://192.168.100.7:8080/scraper/extention/scrapesearchpage?categoryLink=" +
     getUrl; //"https://darazscout-wepp-app.herokuapp.com/api/product/findall";
   var token = localStorage.getItem("token");
   var settings = {
@@ -90,7 +90,7 @@ $(document).ready(function () {
         totalVariation = +result[i].variationCount;
       }
       document.getElementById("totalRevenue").innerText = totalRev;
-      document.getElementById("testelement").innertext = sharedData.url;
+      //document.getElementById("testelement").innertext = sharedData.url;
       document.getElementById("averageRevenue").innerText =
        parseInt( totalRev / result.length);
       document.getElementById("averageReviewCount").innerText = parseInt(
